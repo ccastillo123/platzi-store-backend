@@ -1,0 +1,27 @@
+language: node_js
+cache: # información ya configurada para el proyecto
+        directories:
+                - node_modules
+                - ~/.npm
+node_js: #version
+        - '12'
+git: # número de versiones (git) a guardar
+        depth: 3
+script: #script a ejecutar
+        - yarn test
+notifications:
+  email:
+    reciepients:
+    - cristhiancastillo132@hotmail.com
+    on_success: always
+    on_failure: always
+# manda emails a esos mails cuando es exitoso y cuando falla
+deploy:
+        provider: heroku #github pages
+# configuración del deploy:
+        skip_cleanup: true
+        keep_history: true
+        api_key: 7ac35caa-fd16-44ae-a245-a2f2a38c5763
+        app: platzi-store-backend-cc
+        on:
+                repo: ccastillo132/platzi-store-backend
